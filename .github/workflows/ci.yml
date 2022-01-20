@@ -1,0 +1,54 @@
+name: CI
+
+on:
+  workflow_dispatch:
+    branches: [ main ]
+  push:
+    paths-ignore:
+      - '**.md'
+  pull_request:
+    types: [ opened, synchronize, reopened ]
+    paths-ignore:
+      - '**.md'
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+      - name: Install git-secret
+        run: |
+          sudo sh -c "echo 'deb https://gitsecret.jfrog.io/artifactory/git-secret-deb git-secret main' >> /etc/apt/sources.list"
+          wget -qO - https://gitsecret.jfrog.io/artifactory/api/gpg/key/public | sudo apt-key add -
+          sudo apt-get update && sudo apt-get install -y git-secret
+          git-secret --version
+      - name: Reveal secrets
+        run: |
+          echo "$GPG_PRIVATE_KEY" | gpg --batch --no-tty --import
+          git secret reveal -p "$GPG_SECRET_PASSPHRASE"
+        env:
+          GPG_PRIVATE_KEY: ${{secrets.GPG_PRIVATE_KEY}}
+          GPG_SECRET_PASSPHRASE: ${{secrets.GPG_SECRET_PASSPHRASE}}
+      - name: Load .env file
+        uses: xom9ikk/dotenv@v1.0.2
+        with:
+          path: "./"
+      - name: Format
+        id: format
+        run: make format
+      - name: Lint
+        id: lint
+        run: make lint
+      - name: Test
+        id: test
+        run: make test
+      - name: Codecov
+        uses: codecov/codecov-action@v2
+        with:
+          verbose: true
+      - name: Upload Logs
+        uses: actions/upload-artifact@v2
+        with:
+          name: Artifacts
+          path: ./logs/*.log

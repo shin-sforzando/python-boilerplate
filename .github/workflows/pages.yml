@@ -1,0 +1,26 @@
+name: GitHub Pages
+
+on:
+  workflow_dispatch:
+    branches: [ main ]
+  push:
+    paths-ignore:
+      - '**.md'
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+    - name: Format
+      id: format
+      run: make format
+    - name: Update Document
+      id: doc
+      run: make doc
+    - name: Deploy Document
+      uses: peaceiris/actions-gh-pages@v3
+      with:
+        github_token: ${{ secrets.GITHUB_TOKEN }}
+        publish_dir: ./docs

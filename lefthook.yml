@@ -1,0 +1,11 @@
+pre-commit:
+  commands:
+    format:
+      glob: "*.py"
+      run: make format
+    lint:
+      glob: "*.py"
+      run: make lint
+    test:
+      glob: "*.py"
+      run: make test

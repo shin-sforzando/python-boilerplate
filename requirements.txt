@@ -1,0 +1,9 @@
+black
+blacken-docs
+flake8
+loguru
+pdoc
+pytest
+pytest-cov
+pytest-mock
+pytest-parallel
