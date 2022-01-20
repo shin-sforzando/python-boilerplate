@@ -1,7 +1,9 @@
 {
   "cSpell.words": [
+    "CODECOV",
     "commitizen",
     "lefthook",
+    "loguru",
     "pdoc",
     "peaceiris",
     "Pipenv",

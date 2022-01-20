@@ -1,10 +1,10 @@
-# broad-boilerplate
+# python-boilerplate
 
 <!-- Badges -->
-[![Last Commit](https://img.shields.io/github/last-commit/shin-sforzando/broad-boilerplate)](https://github.com/shin-sforzando/broad-boilerplate/graphs/commit-activity)
-[![CI](https://github.com/shin-sforzando/broad-boilerplate/actions/workflows/ci.yml/badge.svg)](https://github.com/shin-sforzando/broad-boilerplate/actions/workflows/ci.yml)
-[![codecov](https://codecov.io/gh/shin-sforzando/broad-boilerplate/branch/main/graph/badge.svg?token=TDCVLUJ4RF)](https://codecov.io/gh/shin-sforzando/broad-boilerplate)
-[![GitHub Pages](https://github.com/shin-sforzando/broad-boilerplate/actions/workflows/pages.yml/badge.svg)](https://shin-sforzando.github.io/broad-boilerplate/)
+[![Last Commit](https://img.shields.io/github/last-commit/shin-sforzando/python-boilerplate)](https://github.com/shin-sforzando/python-boilerplate/graphs/commit-activity)
+[![CI](https://github.com/shin-sforzando/python-boilerplate/actions/workflows/ci.yml/badge.svg)](https://github.com/shin-sforzando/python-boilerplate/actions/workflows/ci.yml)
+[![codecov](https://codecov.io/gh/shin-sforzando/python-boilerplate/branch/main/graph/badge.svg?token=TDCVLUJ4RF)](https://codecov.io/gh/shin-sforzando/python-boilerplate)
+[![GitHub Pages](https://github.com/shin-sforzando/python-boilerplate/actions/workflows/pages.yml/badge.svg)](https://shin-sforzando.github.io/python-boilerplate/)
 [![Commitizen friendly](https://img.shields.io/badge/commitizen-friendly-brightgreen.svg)](http://commitizen.github.io/cz-cli/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)
 
@@ -14,9 +14,7 @@
 |Screenshot 1|Screenshot 2|
 
 <!-- Synopsis -->
-**broad-boilerplate** is a template repository for using Docker & Python.
-
-See. [API Document](https://shin-sforzando.github.io/broad-boilerplate/)
+**python-boilerplate** is a template repository for using Docker & Python.
 
 <!-- TOC -->
 - [Prerequisites](#prerequisites)
@@ -79,13 +77,13 @@ help                 助言
 ### Use this template
 
 - [ ] Replace the string `shin-sforzando` with the actual project owner
-- [ ] Replace the string `broad-boilerplate` with the actual project name
+- [ ] Replace the string `python-boilerplate` with the actual project name
 - [ ] `lefthook install` to install git hooks
-- [ ] Check the [repository secrets](https://github.com/shin-sforzando/broad-boilerplate/settings/secrets/actions)
-  - [ ] `git secret remove dev@sforzando.co.jp\(FF810D98\).asc` to delete it
+- [ ] Check the [repository secrets](https://github.com/shin-sforzando/python-boilerplate/settings/secrets/actions)
+  - [ ] `git secret remove dev@sforzando.co.jp.asc` to delete it
   - [ ] Set `CODECOV_TOKEN` if it's private
-- [ ] Prepare [GitHub Pages](https://github.com/shin-sforzando/broad-boilerplate/settings/pages)
-- [ ] Integrate with Slack: `/github subscribe shin-sforzando/broad-boilerplate reviews comments branches commits:*`
+- [ ] Prepare [GitHub Pages](https://github.com/shin-sforzando/python-boilerplate/settings/pages)
+- [ ] Integrate with Slack: `/github subscribe shin-sforzando/python-boilerplate reviews comments branches commits:*`
 - [ ] **Delete this section!**
 
 ### Initialize
@@ -130,7 +128,7 @@ make test
 
 #### API Document
 
-When the main branch is updated, `pages.yml` will update the [API Document](https://shin-sforzando.github.io/broad-boilerplate/).
+When the main branch is updated, `pages.yml` will update the [API Document](https://shin-sforzando.github.io/python-boilerplate/).
 
 If you want to generate the documentation manually,
 
