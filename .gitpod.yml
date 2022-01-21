@@ -2,10 +2,16 @@ image:
   file: .gitpod.Dockerfile
 
 tasks:
-  - init: make init
-  - command: make
+  - init: |
+      eval $(gp env -e)
+  - command: |
+      make
 
 ports:
   - port: 8000
     visibility: private
     onOpen: notify
+
+vscode:
+  extensions:
+    - ms-azuretools.vscode-docker
