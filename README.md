@@ -78,6 +78,7 @@ help                 助言
 
 - [ ] Replace the string `shin-sforzando` with the actual project owner
 - [ ] Replace the string `python-boilerplate` with the actual project name
+- [ ] Create an issue for screenshots
 - [ ] `lefthook install` to install git hooks
 - [ ] Check the [repository secrets](https://github.com/shin-sforzando/python-boilerplate/settings/secrets/actions)
   - [ ] `git secret remove dev@sforzando.co.jp.asc` to delete it
