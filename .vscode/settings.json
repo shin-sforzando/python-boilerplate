@@ -1,14 +1,18 @@
 {
   "cSpell.words": [
+    "Anson",
     "azuretools",
     "CODECOV",
     "commitizen",
     "lefthook",
     "loguru",
+    "markdownlint",
     "pdoc",
     "peaceiris",
     "Pipenv",
     "sforzando",
-    "sfz"
+    "sfz",
+    "toolsai",
+    "yzhang"
   ]
 }
