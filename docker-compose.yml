@@ -8,3 +8,9 @@ services:
     ports:
       - "8000:8000"
     tty: true
+    networks:
+      - app
+
+networks:
+  app:
+    driver: bridge

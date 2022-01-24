@@ -21,7 +21,7 @@ default: start # 常用
 init: reveal ## 初回
 	echo "TODO: Not Implemented Yet!"
 
-ps: hr ## 状況
+ps: ## 状況
 	$(CMD_DOCKER_COMPOSE) ps --all
 
 build: ## 構築
