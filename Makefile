@@ -2,6 +2,7 @@
 
 TIMESTAMP := $(shell date +%Y%m%d%H%M%S)
 MAKEFILE_DIR := $(dir $(realpath $(firstword $(MAKEFILE_LIST))))
+OS_NAME := $(shell uname -s)
 
 CMD_DOCKER := docker
 CMD_DOCKER_COMPOSE := docker compose
@@ -14,8 +15,7 @@ PREVIEW_URL := http://0.0.0.0:8000/
 .PHONY: default init ps build up renew shell logs follow open hide reveal start format lint test doc deploy stop down clean prune help
 
 default: up # 常用
-	@if type say > /dev/null 2>&1; then say "The application has been started."; fi
-	make open
+	if [ $(OS_NAME) = "Darwin" ]; then say "The application has been started." && make open ; fi
 	make follow
 
 init: reveal ## 初回
