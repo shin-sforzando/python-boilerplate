@@ -42,9 +42,10 @@
   - [Python](https://www.python.org) (Version 3.10 or higher)
     - [black](https://github.com/psf/black) as *Formatter*
       - [blacken-docs](https://github.com/asottile/blacken-docs)
-    - [flake8](https://pypi.org/project/flake8/) as *Linter*
+    - [flake8](https://pypi.org/project/flake8/) as *Python Code Linter*
     - [pdoc](https://github.com/mitmproxy/pdoc) as *Document Generator*
-    - [loguru](https://github.com/Delgan/loguru) as *Logger*
+    - [loguru](https://github.com/Delgan/loguru) as *Application Logger*
+  - [secretlint](https://github.com/secretlint/secretlint) as *Credential Linter*
 
 ## How to
 
