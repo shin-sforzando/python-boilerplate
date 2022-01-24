@@ -5,6 +5,7 @@ tasks:
   - init: |
       eval $(gp env -e)
   - command: |
+      eval $(gp env -e)
       make
 
 ports:
