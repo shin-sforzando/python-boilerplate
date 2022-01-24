@@ -5,14 +5,18 @@ tasks:
   - init: |
       eval $(gp env -e)
   - command: |
-      eval $(gp env -e)
       make
 
 ports:
   - port: 8000
     visibility: private
-    onOpen: notify
+    onOpen: open-preview
 
 vscode:
   extensions:
     - ms-azuretools.vscode-docker
+    - DavidAnson.vscode-markdownlint
+    - EditorConfig.editorconfig
+    - shd101wyy.markdown-preview-enhanced
+    - streetsidesoftware.code-spell-checker
+    - yzhang.markdown-all-in-one
