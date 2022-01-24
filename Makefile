@@ -13,8 +13,8 @@ PREVIEW_URL := http://0.0.0.0:8000/
 .DEFAULT_GOAL := default
 .PHONY: default init ps build up renew shell logs follow open hide reveal start format lint test doc deploy stop down clean prune help
 
-default: start # 常用
-	if type say > /dev/null 2>&1; then say "The application has been started."; fi
+default: up # 常用
+	@if type say > /dev/null 2>&1; then say "The application has been started."; fi
 	make open
 	make follow
 
@@ -51,8 +51,8 @@ hide: ## 秘匿
 reveal: ## 暴露
 	git secret reveal -vf
 
-start: ## 開始
-	$(CMD_DOCKER_COMPOSE) run --rm --no-deps $(MAIN_CONTAINER_APP) python main.py
+start: stop ## 開始
+	$(CMD_DOCKER_COMPOSE) run --rm --no-deps --service-ports $(MAIN_CONTAINER_APP) python main.py
 
 format: ## 整形
 	$(CMD_DOCKER_COMPOSE) run --rm --no-deps $(MAIN_CONTAINER_APP) black .
