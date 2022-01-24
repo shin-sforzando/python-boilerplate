@@ -14,14 +14,14 @@ PREVIEW_URL := http://0.0.0.0:8000/
 .PHONY: default init ps build up renew shell logs follow open hide reveal start format lint test doc deploy stop down clean prune help
 
 default: start # 常用
-	@say "The application has been started."
+	if type say > /dev/null 2>&1; then say "The application has been started."; fi
 	make open
 	make follow
 
 init: reveal ## 初回
 	echo "TODO: Not Implemented Yet!"
 
-ps: ## 状況
+ps: hr ## 状況
 	$(CMD_DOCKER_COMPOSE) ps --all
 
 build: ## 構築
@@ -77,10 +77,10 @@ down: ## 削除
 	$(CMD_DOCKER_COMPOSE) down --rmi all --remove-orphans
 
 clean: down ## 掃除
-	rm -rf logs/*
-	rm -rf .mypy_cache
-	rm -rf .pytest_cache
-	rm -rf .coverage.*
+	rm -rfv logs/*
+	rm -rfv .mypy_cache
+	rm -rfv .pytest_cache
+	rm -rfv .coverage.*
 
 prune: ## 破滅
 	$(CMD_DOCKER) system prune --all --force --volumes
