@@ -15,7 +15,8 @@ PREVIEW_URL := http://0.0.0.0:8000/
 .PHONY: default init ps build up renew shell logs follow open hide reveal start format lint test doc deploy stop down clean prune help
 
 default: up # 常用
-	if [ $(OS_NAME) = "Darwin" ]; then say "The application has been started." && make open ; fi
+	if [ $(OS_NAME) = "Darwin" ]; then say "The application has been started."; fi
+	make open
 	make follow
 
 init: reveal ## 初回
@@ -43,7 +44,7 @@ follow: ## 追跡
 	$(CMD_DOCKER_COMPOSE) logs --timestamps --follow
 
 open: ## 閲覧
-	open ${PREVIEW_URL}
+	if [ $(OS_NAME) = "Darwin" ]; then open ${PREVIEW_URL}; fi
 
 hide: ## 秘匿
 	git secret hide -v

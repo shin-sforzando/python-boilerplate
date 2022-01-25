@@ -79,12 +79,13 @@ help                 助言
 
 - [ ] Replace the string `shin-sforzando` with the actual project owner
 - [ ] Replace the string `python-boilerplate` with the actual project name
-- [ ] Create an issue for screenshots
+- [ ] Create an issue `#1` for screenshots
 - [ ] `lefthook install` to install git hooks
 - [ ] Check the [repository secrets](https://github.com/shin-sforzando/python-boilerplate/settings/secrets/actions)
   - [ ] `git secret remove dev@sforzando.co.jp.asc` to delete it
-  - [ ] Set `CODECOV_TOKEN` if it's private
+  - [ ] Set `CODECOV_TOKEN` of this repository if it's private
 - [ ] Prepare [GitHub Pages](https://github.com/shin-sforzando/python-boilerplate/settings/pages)
+- [ ] Delete `.github/workflows/codeql-analysis.yml` if it's private
 - [ ] Integrate with Slack: `/github subscribe shin-sforzando/python-boilerplate reviews comments branches commits:*`
 - [ ] **Delete this section!**
 
