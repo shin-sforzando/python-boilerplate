@@ -34,7 +34,7 @@ up: build ## 起動
 renew: down clean build ; ## 転生
 	$(CMD_DOCKER_COMPOSE) up --detach --remove-orphans --force-recreate
 
-shell: up ## 接続
+shell: ## 接続
 	$(CMD_DOCKER_COMPOSE) exec $(MAIN_CONTAINER_APP) $(MAIN_CONTAINER_SHELL)
 
 logs: ## 記録
