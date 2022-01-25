@@ -358,6 +358,6 @@ cython_debug/
 ### Git Secret ###
 .gitsecret/keys/random_seed
 !*.secret
-dev@sforzando.co.jp.asc
+dev@sforzando.co.jp.asc*
 
 ### Project-specific ###

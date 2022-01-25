@@ -9,3 +9,5 @@ pre-commit:
     test:
       glob: "*.py"
       run: make test
+    secretlint:
+      run: docker run --platform linux/amd64 -v `pwd`:`pwd` -w `pwd` --rm -it secretlint/secretlint secretlint "**/*"
