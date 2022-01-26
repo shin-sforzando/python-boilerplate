@@ -13,7 +13,7 @@ assignees: ''
 
 ex. Automated testing should be completed with just a push.
 
-### Test code that clarifies the acceptance criteria
+### Describe the acceptance criteria
 
 (T. B. D.)
 
