@@ -21,7 +21,7 @@ def main() -> None:
     """
 
     logger.debug("This is main().")
-    with http.server.HTTPServer(("0.0.0.0", PORT), Handler) as httpd:
+    with http.server.HTTPServer((HOST, PORT), Handler) as httpd:
         logger.info(f"Listening on {HOST}:{PORT}")
         try:
             logger.info(httpd.serve_forever())

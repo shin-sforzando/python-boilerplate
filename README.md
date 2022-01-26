@@ -9,9 +9,9 @@
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)
 
 <!-- Screenshots -->
-|![Screenshot 1](https://placehold.jp/32/3d4070/ffffff/720x480.png?text=Screenshot%201)|![Screenshot 2](https://placehold.jp/32/703d40/ffffff/720x480.png?text=Screenshot%202)|
-|:---:|:---:|
-|Screenshot 1|Screenshot 2|
+| ![Screenshot 1](https://placehold.jp/32/3d4070/ffffff/720x480.png?text=Screenshot%201) | ![Screenshot 2](https://placehold.jp/32/703d40/ffffff/720x480.png?text=Screenshot%202) |
+|:--------------------------------------------------------------------------------------:|:--------------------------------------------------------------------------------------:|
+|                                      Screenshot 1                                      |                                      Screenshot 2                                      |
 
 <!-- Synopsis -->
 **python-boilerplate** is a template repository for using Docker & Python.
@@ -40,11 +40,14 @@
 - [Lefthook](https://github.com/evilmartians/lefthook) as *Git Hooks Manager*
 - [Docker](https://www.docker.com) as *Environment Isolator*
   - [Python](https://www.python.org) (Version 3.10 or higher)
-    - [black](https://github.com/psf/black) as *Formatter*
-      - [blacken-docs](https://github.com/asottile/blacken-docs)
-    - [flake8](https://pypi.org/project/flake8/) as *Python Code Linter*
-    - [pdoc](https://github.com/mitmproxy/pdoc) as *Document Generator*
-    - [loguru](https://github.com/Delgan/loguru) as *Application Logger*
+    - Production Dependencies
+      - (T. B. D.)
+    - Development Dependencies
+      - [black](https://github.com/psf/black) as *Formatter*
+        - [blacken-docs](https://github.com/asottile/blacken-docs)
+      - [flake8](https://pypi.org/project/flake8/) as *Python Code Linter*
+      - [pdoc](https://github.com/mitmproxy/pdoc) as *Document Generator*
+      - [loguru](https://github.com/Delgan/loguru) as *Application Logger*
   - [secretlint](https://github.com/secretlint/secretlint) as *Credential Linter*
 
 ## How to
@@ -79,12 +82,13 @@ help                 助言
 
 - [ ] Replace the string `shin-sforzando` with the actual project owner
 - [ ] Replace the string `python-boilerplate` with the actual project name
-- [ ] Create an issue for screenshots
+- [ ] Create an issue `#1` for screenshots
 - [ ] `lefthook install` to install git hooks
 - [ ] Check the [repository secrets](https://github.com/shin-sforzando/python-boilerplate/settings/secrets/actions)
   - [ ] `git secret remove dev@sforzando.co.jp.asc` to delete it
-  - [ ] Set `CODECOV_TOKEN` if it's private
+  - [ ] Set `CODECOV_TOKEN` of this repository if it's private
 - [ ] Prepare [GitHub Pages](https://github.com/shin-sforzando/python-boilerplate/settings/pages)
+- [ ] Delete `.github/workflows/codeql-analysis.yml` if it's private
 - [ ] Integrate with Slack: `/github subscribe shin-sforzando/python-boilerplate reviews comments branches commits:*`
 - [ ] **Delete this section!**
 

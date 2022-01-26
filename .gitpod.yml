@@ -4,7 +4,6 @@ image:
 tasks:
   - init: |
       eval $(gp env -e)
-      bash -c "$(curl -fsSL https://raw.githubusercontent.com/ohmybash/oh-my-bash/master/tools/install.sh)"
   - command: |
       make
 
