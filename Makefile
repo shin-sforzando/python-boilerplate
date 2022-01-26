@@ -63,7 +63,7 @@ lint: ## 検証
 	$(CMD_DOCKER_COMPOSE) run --no-deps $(MAIN_CONTAINER_APP) flake8
 
 test: ## 試験
-	$(CMD_DOCKER_COMPOSE) run --no-deps $(MAIN_CONTAINER_APP) pytest
+	$(CMD_DOCKER_COMPOSE) run --no-deps $(MAIN_CONTAINER_APP) pytest -vvvv
 
 doc: format ## 文書
 	$(CMD_DOCKER_COMPOSE) run --no-deps $(MAIN_CONTAINER_APP) pdoc -d google -o ./docs *.py
