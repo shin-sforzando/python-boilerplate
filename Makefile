@@ -53,20 +53,20 @@ reveal: ## 暴露
 	git secret reveal -vf
 
 start: stop ## 開始
-	$(CMD_DOCKER_COMPOSE) run --rm --no-deps --service-ports $(MAIN_CONTAINER_APP) python main.py
+	$(CMD_DOCKER_COMPOSE) run --no-deps --service-ports $(MAIN_CONTAINER_APP) python main.py
 
 format: ## 整形
-	$(CMD_DOCKER_COMPOSE) run --rm --no-deps $(MAIN_CONTAINER_APP) black .
-	$(CMD_DOCKER_COMPOSE) run --rm --no-deps $(MAIN_CONTAINER_APP) blacken-docs
+	$(CMD_DOCKER_COMPOSE) run --no-deps $(MAIN_CONTAINER_APP) black .
+	$(CMD_DOCKER_COMPOSE) run --no-deps $(MAIN_CONTAINER_APP) blacken-docs
 
 lint: ## 検証
-	$(CMD_DOCKER_COMPOSE) run --rm --no-deps $(MAIN_CONTAINER_APP) flake8
+	$(CMD_DOCKER_COMPOSE) run --no-deps $(MAIN_CONTAINER_APP) flake8
 
 test: ## 試験
-	$(CMD_DOCKER_COMPOSE) run --rm --no-deps $(MAIN_CONTAINER_APP) pytest
+	$(CMD_DOCKER_COMPOSE) run --no-deps $(MAIN_CONTAINER_APP) pytest
 
 doc: format ## 文書
-	$(CMD_DOCKER_COMPOSE) run --rm --no-deps $(MAIN_CONTAINER_APP) pdoc -d google -o ./docs *.py
+	$(CMD_DOCKER_COMPOSE) run --no-deps $(MAIN_CONTAINER_APP) pdoc -d google -o ./docs *.py
 
 deploy: ## 配備
 	echo "TODO: Not Implemented Yet!"
