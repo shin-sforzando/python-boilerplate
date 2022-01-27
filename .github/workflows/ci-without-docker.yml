@@ -16,7 +16,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        python-version: ['3.8', '3.9', '3.10']
+        python-version: ['3.7', '3.8', '3.9', '3.10']
 
     steps:
       - uses: actions/checkout@v2
@@ -50,13 +50,7 @@ jobs:
         run: flake8
       - name: Test
         id: test
-        run: pytest -vvvv
-      - name: Codecov
-        uses: codecov/codecov-action@v2
-        with:
-          # token: ${{ secrets.CODECOV_TOKEN }}
-          fail_ci_if_error: true
-          verbose: true
+        run: pytest
       - name: Upload Logs
         uses: actions/upload-artifact@v2
         with:
