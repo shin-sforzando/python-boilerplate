@@ -14,8 +14,7 @@ PREVIEW_URL := http://0.0.0.0:8000/
 .DEFAULT_GOAL := default
 .PHONY: default init ps build up renew shell logs follow open hide reveal start format lint test doc deploy stop down clean prune help
 
-default: up # 常用
-	if [ $(OS_NAME) = "Darwin" ]; then say "The application has been started." ; fi
+default: up ## 常用
 	make open
 	make follow
 
@@ -27,12 +26,15 @@ ps: ## 状況
 
 build: ## 構築
 	$(CMD_DOCKER_COMPOSE) build
+	if [ $(OS_NAME) = "Darwin" ]; then say "The building process is now complete." ; fi
 
 up: build ## 起動
 	$(CMD_DOCKER_COMPOSE) up --detach --remove-orphans
+	if [ $(OS_NAME) = "Darwin" ]; then say "The container has been launched." ; fi
 
 renew: down clean build ; ## 転生
 	$(CMD_DOCKER_COMPOSE) up --detach --remove-orphans --force-recreate
+	if [ $(OS_NAME) = "Darwin" ]; then say "The container has been renewed." ; fi
 
 shell: ## 接続
 	$(CMD_DOCKER_COMPOSE) exec $(MAIN_CONTAINER_APP) $(MAIN_CONTAINER_SHELL)
@@ -54,16 +56,18 @@ reveal: ## 暴露
 
 start: stop ## 開始
 	$(CMD_DOCKER_COMPOSE) run --rm --no-deps --service-ports $(MAIN_CONTAINER_APP) python main.py
+	if [ $(OS_NAME) = "Darwin" ]; then say "The application has been started." ; fi
 
-format: ## 整形
+format: build ## 整形
 	$(CMD_DOCKER_COMPOSE) run --rm --no-deps $(MAIN_CONTAINER_APP) black .
 	$(CMD_DOCKER_COMPOSE) run --rm --no-deps $(MAIN_CONTAINER_APP) blacken-docs
 
-lint: ## 検証
+lint: build ## 検証
 	$(CMD_DOCKER_COMPOSE) run --rm --no-deps $(MAIN_CONTAINER_APP) flake8
 
-test: ## 試験
+test: build ## 試験
 	$(CMD_DOCKER_COMPOSE) run --rm --no-deps $(MAIN_CONTAINER_APP) pytest
+	if [ $(OS_NAME) = "Darwin" ]; then say "The test process is now complete." ; fi
 
 doc: format ## 文書
 	$(CMD_DOCKER_COMPOSE) run --rm --no-deps $(MAIN_CONTAINER_APP) pdoc -d google -o ./docs *.py
