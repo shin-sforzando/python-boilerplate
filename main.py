@@ -21,12 +21,10 @@ def main() -> None:
     """
 
     logger.debug("This is main().")
+
     with http.server.HTTPServer((HOST, PORT), Handler) as httpd:
-        logger.info(f"Listening on {HOST}:{PORT}")
-        try:
-            logger.info(httpd.serve_forever())
-        except KeyboardInterrupt as ki:
-            logger.warning(ki)
+        print(f"Listening on {HOST}:{PORT}")
+        print(httpd.serve_forever())
 
 
 if __name__ == "__main__":

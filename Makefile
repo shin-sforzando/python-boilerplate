@@ -15,7 +15,7 @@ PREVIEW_URL := http://0.0.0.0:8000/
 .PHONY: default init ps build up renew shell logs follow open hide reveal start format lint test doc deploy stop down clean prune help
 
 default: up # 常用
-	if [ $(OS_NAME) = "Darwin" ]; then say "The application has been started."; fi
+	if [ $(OS_NAME) = "Darwin" ]; then say "The application has been started." ; fi
 	make open
 	make follow
 
@@ -44,7 +44,7 @@ follow: ## 追跡
 	$(CMD_DOCKER_COMPOSE) logs --timestamps --follow
 
 open: ## 閲覧
-	if [ $(OS_NAME) = "Darwin" ]; then open ${PREVIEW_URL}; fi
+	if [ $(OS_NAME) = "Darwin" ]; then open ${PREVIEW_URL} ; fi
 
 hide: ## 秘匿
 	git secret hide -v
@@ -53,20 +53,20 @@ reveal: ## 暴露
 	git secret reveal -vf
 
 start: stop ## 開始
-	$(CMD_DOCKER_COMPOSE) run --no-deps --service-ports $(MAIN_CONTAINER_APP) python main.py
+	$(CMD_DOCKER_COMPOSE) run --rm --no-deps --service-ports $(MAIN_CONTAINER_APP) python main.py
 
 format: ## 整形
-	$(CMD_DOCKER_COMPOSE) run --no-deps $(MAIN_CONTAINER_APP) black .
-	$(CMD_DOCKER_COMPOSE) run --no-deps $(MAIN_CONTAINER_APP) blacken-docs
+	$(CMD_DOCKER_COMPOSE) run --rm --no-deps $(MAIN_CONTAINER_APP) black .
+	$(CMD_DOCKER_COMPOSE) run --rm --no-deps $(MAIN_CONTAINER_APP) blacken-docs
 
 lint: ## 検証
-	$(CMD_DOCKER_COMPOSE) run --no-deps $(MAIN_CONTAINER_APP) flake8
+	$(CMD_DOCKER_COMPOSE) run --rm --no-deps $(MAIN_CONTAINER_APP) flake8
 
 test: ## 試験
-	$(CMD_DOCKER_COMPOSE) run --no-deps $(MAIN_CONTAINER_APP) pytest -vvvv
+	$(CMD_DOCKER_COMPOSE) run --rm --no-deps $(MAIN_CONTAINER_APP) pytest
 
 doc: format ## 文書
-	$(CMD_DOCKER_COMPOSE) run --no-deps $(MAIN_CONTAINER_APP) pdoc -d google -o ./docs *.py
+	$(CMD_DOCKER_COMPOSE) run --rm --no-deps $(MAIN_CONTAINER_APP) pdoc -d google -o ./docs *.py
 
 deploy: ## 配備
 	echo "TODO: Not Implemented Yet!"

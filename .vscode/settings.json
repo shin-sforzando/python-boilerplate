@@ -10,9 +10,11 @@
     "pdoc",
     "peaceiris",
     "Pipenv",
+    "pytest",
     "sforzando",
     "sfz",
     "toolsai",
     "yzhang"
-  ]
+  ],
+  "python.formatting.provider": "black"
 }
