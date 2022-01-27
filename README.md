@@ -48,6 +48,8 @@
       - [flake8](https://pypi.org/project/flake8/) as *Python Code Linter*
       - [pdoc](https://github.com/mitmproxy/pdoc) as *Document Generator*
       - [loguru](https://github.com/Delgan/loguru) as *Application Logger*
+      - [pytest](https://pypi.org/project/pytest/) for *Application Test*
+        - [pytest-xdist](https://pypi.org/project/pytest-xdist/)
   - [secretlint](https://github.com/secretlint/secretlint) as *Credential Linter*
 
 ## How to

@@ -58,11 +58,11 @@ start: stop ## 開始
 	$(CMD_DOCKER_COMPOSE) run --rm --no-deps --service-ports $(MAIN_CONTAINER_APP) python main.py
 	if [ $(OS_NAME) = "Darwin" ]; then say "The application has been started." ; fi
 
-format: build ## 整形
+format: ## 整形
 	$(CMD_DOCKER_COMPOSE) run --rm --no-deps $(MAIN_CONTAINER_APP) black .
 	$(CMD_DOCKER_COMPOSE) run --rm --no-deps $(MAIN_CONTAINER_APP) blacken-docs
 
-lint: build ## 検証
+lint: ## 検証
 	$(CMD_DOCKER_COMPOSE) run --rm --no-deps $(MAIN_CONTAINER_APP) flake8
 
 test: build ## 試験
