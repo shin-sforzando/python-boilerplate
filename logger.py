@@ -11,7 +11,6 @@ def get_logger():
     Returns:
         loguru.logger.Logger: Initial settings have been applied.
     """
-
     logger.remove()
     logger.add("logs/{time}.log", rotation="24h")
     logger.add(lambda msg: tqdm.write(msg, end=""), colorize=True)
@@ -33,7 +32,6 @@ def logger_timing(*, entering=True, leaving=True, timeit=True, level="DEBUG"):
     Note:
         https://loguru.readthedocs.io/en/stable/resources/recipes.html
     """
-
     def wrapper(func):
         name = func.__name__
 

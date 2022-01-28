@@ -20,7 +20,6 @@ def main() -> None:
     Returns:
         None: This is the entry point.
     """
-
     with http.server.HTTPServer((HOST, PORT), Handler) as httpd:
         logger.info(f"Listening on {HOST}:{PORT} ...")
         logger.info(httpd.serve_forever())

@@ -2,7 +2,7 @@ pre-commit:
   commands:
     format:
       glob: "*.py"
-      run: make format
+      run: make format OPTS="--check"
     python-lint:
       glob: "*.py"
       run: make lint

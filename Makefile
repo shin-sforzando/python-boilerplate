@@ -9,8 +9,9 @@ CMD_DOCKER_COMPOSE := docker compose
 
 MAIN_CONTAINER_APP := app
 MAIN_CONTAINER_SHELL := bash
-PREVIEW_URL := http://0.0.0.0:8000/
+OPEN_TARGET := http://0.0.0.0:8000/
 
+OPTS :=
 .DEFAULT_GOAL := default
 .PHONY: default init ps build up renew shell logs follow open hide reveal start format lint test doc deploy stop down clean prune help
 
@@ -47,7 +48,7 @@ follow: ## 追跡
 	$(CMD_DOCKER_COMPOSE) logs --timestamps --follow
 
 open: ## 閲覧
-	if [ $(OS_NAME) = "Darwin" ]; then open ${PREVIEW_URL} ; fi
+	if [ $(OS_NAME) = "Darwin" ]; then open ${OPEN_TARGET} ; fi
 
 hide: ## 秘匿
 	git secret hide -v
@@ -60,7 +61,7 @@ start: stop ## 開始
 	$(CMD_DOCKER_COMPOSE) run --rm --no-deps --service-ports $(MAIN_CONTAINER_APP) python main.py
 
 format: ## 整形
-	$(CMD_DOCKER_COMPOSE) run --rm --no-deps $(MAIN_CONTAINER_APP) black .
+	$(CMD_DOCKER_COMPOSE) run --rm --no-deps $(MAIN_CONTAINER_APP) black $(OPTS) .
 	$(CMD_DOCKER_COMPOSE) run --rm --no-deps $(MAIN_CONTAINER_APP) blacken-docs
 
 lint: ## 検証
@@ -73,6 +74,7 @@ test: build ## 試験
 doc: format ## 文書
 	$(CMD_DOCKER_COMPOSE) run --rm --no-deps $(MAIN_CONTAINER_APP) pdoc -d google -o ./docs *.py
 	if [ $(OS_NAME) = "Darwin" ]; then say "The document generation is complete." ; fi
+	make open OPEN_TARGET="./docs/index.html"
 
 deploy: ## 配備
 	echo "TODO: Not Implemented Yet!"
