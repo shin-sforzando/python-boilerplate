@@ -12,8 +12,9 @@ on:
       - '**.md'
 
 jobs:
-  build:
+  ci:
     runs-on: ubuntu-latest
+    if: ${{ !contains(github.event.commits.*.message, '[skip ci]') }}
 
     steps:
       - uses: actions/checkout@v2
