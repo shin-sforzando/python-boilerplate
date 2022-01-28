@@ -1,5 +1,5 @@
-from logger import get_logger
+import logger
 
 
 def test_get_logger():
-    assert get_logger()
+    assert logger.get_logger()
