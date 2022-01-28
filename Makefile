@@ -56,8 +56,8 @@ reveal: ## 暴露
 	git secret reveal -vf
 
 start: stop ## 開始
+	if [ $(OS_NAME) = "Darwin" ]; then say "Start the application." ; fi
 	$(CMD_DOCKER_COMPOSE) run --rm --no-deps --service-ports $(MAIN_CONTAINER_APP) python main.py
-	if [ $(OS_NAME) = "Darwin" ]; then say "The application has been started." ; fi
 
 format: ## 整形
 	$(CMD_DOCKER_COMPOSE) run --rm --no-deps $(MAIN_CONTAINER_APP) black .

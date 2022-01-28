@@ -2,7 +2,7 @@
 
 import http.server
 
-from logger import get_logger
+from logger import get_logger, logger_timing
 
 HOST: str = "0.0.0.0"
 """str: Listening Host."""
@@ -13,6 +13,7 @@ Handler = http.server.SimpleHTTPRequestHandler
 logger = get_logger()
 
 
+@logger_timing()
 def main() -> None:
     """Main function.
 
@@ -20,11 +21,9 @@ def main() -> None:
         None: This is the entry point.
     """
 
-    logger.debug("This is main().")
-
     with http.server.HTTPServer((HOST, PORT), Handler) as httpd:
-        print(f"Listening on {HOST}:{PORT}")
-        print(httpd.serve_forever())
+        logger.info(f"Listening on {HOST}:{PORT} ...")
+        logger.info(httpd.serve_forever())
 
 
 if __name__ == "__main__":
