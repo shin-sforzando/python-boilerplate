@@ -14,6 +14,7 @@
     "sforzando",
     "sfz",
     "toolsai",
+    "tqdm",
     "yzhang"
   ],
   "python.formatting.provider": "black"

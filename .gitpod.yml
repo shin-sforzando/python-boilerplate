@@ -16,7 +16,6 @@ vscode:
   extensions:
     - ms-azuretools.vscode-docker
     - ms-python.python
-    - ms-toolsai.jupyter
     - DavidAnson.vscode-markdownlint
     - EditorConfig.editorconfig
     - shd101wyy.markdown-preview-enhanced
