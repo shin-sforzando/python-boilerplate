@@ -4,7 +4,9 @@ services:
   app:
     build: .
     volumes:
-      - .:/app
+      - type: bind
+        source: ./
+        target: /app
     ports:
       - "8000:8000"
     tty: true
