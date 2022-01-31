@@ -32,6 +32,7 @@ def logger_timing(*, entering=True, leaving=True, timeit=True, level="DEBUG"):
     Note:
         https://loguru.readthedocs.io/en/stable/resources/recipes.html
     """
+
     def wrapper(func):
         name = func.__name__
 

@@ -62,13 +62,12 @@ start: stop ## 開始
 
 format: ## 整形
 	$(CMD_DOCKER_COMPOSE) run --rm --no-deps $(MAIN_CONTAINER_APP) black $(OPTS) .
-	$(CMD_DOCKER_COMPOSE) run --rm --no-deps $(MAIN_CONTAINER_APP) blacken-docs
 
 lint: ## 検証
 	$(CMD_DOCKER_COMPOSE) run --rm --no-deps $(MAIN_CONTAINER_APP) flake8
 
 test: build ## 試験
-	$(CMD_DOCKER_COMPOSE) run --rm --no-deps $(MAIN_CONTAINER_APP) pytest
+	$(CMD_DOCKER_COMPOSE) run --rm --no-deps $(MAIN_CONTAINER_APP) pytest $(OPTS)
 	if [ $(OS_NAME) = "Darwin" ]; then say "The test process is complete." ; fi
 
 doc: format ## 文書

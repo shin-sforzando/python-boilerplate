@@ -1,7 +1,6 @@
 # prod dependencies
 # dev dependencies
 black
-blacken-docs
 flake8
 loguru
 pdoc

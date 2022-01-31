@@ -44,12 +44,11 @@
       - (T. B. D.)
     - Development Dependencies
       - [black](https://github.com/psf/black) as *Formatter*
-        - [blacken-docs](https://github.com/asottile/blacken-docs)
       - [flake8](https://pypi.org/project/flake8/) as *Python Code Linter*
       - [pdoc](https://github.com/mitmproxy/pdoc) as *Document Generator*
       - [loguru](https://github.com/Delgan/loguru) as *Application Logger*
       - [pytest](https://pypi.org/project/pytest/) for *Application Test*
-        - [pytest-xdist](https://pypi.org/project/pytest-xdist/)
+        - [pytest-xdist](https://pypi.org/project/pytest-xdist/) for *Parallel Testing*
   - [secretlint](https://github.com/secretlint/secretlint) as *Credential Linter*
 
 ## How to
