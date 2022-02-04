@@ -1,6 +1,10 @@
 codecov:
   require_ci_to_pass: yes
 
+ignore:
+  - "tests/**"
+  - "test_*.py"
+
 coverage:
   precision: 2
   round: down
