@@ -5,14 +5,20 @@ from loguru import logger
 from tqdm import tqdm
 
 
-def get_logger():
+def get_logger(file_prefix: str = "", file_postfix: str = "") -> logger:
     """Return a standardized loguru logger.
 
+    Args:
+        file_prefix (str, optional): File name prefix. Defaults to "".
+        file_postfix (str, optional): File name postfix. Defaults to "".
+
     Returns:
-        loguru.logger.Logger: Initial settings have been applied.
+        logger: With initial settings.
     """
     logger.remove()
-    logger.add("logs/{time}.log", rotation="24h")
+    file_prefix = f"{file_prefix}{'_' if file_prefix else ''}"
+    file_postfix = f"{'_' if file_postfix else ''}{file_postfix}"
+    logger.add(f"logs/{file_prefix}{{time:YYYYMMDD}}{file_postfix}.log", rotation="24h")
     logger.add(lambda msg: tqdm.write(msg, end=""), colorize=True)
     return logger
 
