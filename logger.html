@@ -64,14 +64,20 @@ logger    </h1>
 <span class="kn">from</span> <span class="nn">tqdm</span> <span class="kn">import</span> <span class="n">tqdm</span>
 
 
-<span class="k">def</span> <span class="nf">get_logger</span><span class="p">():</span>
+<span class="k">def</span> <span class="nf">get_logger</span><span class="p">(</span><span class="n">file_prefix</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="n">file_postfix</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">logger</span><span class="p">:</span>
     <span class="sd">&quot;&quot;&quot;Return a standardized loguru logger.</span>
 
+<span class="sd">    Args:</span>
+<span class="sd">        file_prefix (str, optional): File name prefix. Defaults to &quot;&quot;.</span>
+<span class="sd">        file_postfix (str, optional): File name postfix. Defaults to &quot;&quot;.</span>
+
 <span class="sd">    Returns:</span>
-<span class="sd">        loguru.logger.Logger: Initial settings have been applied.</span>
+<span class="sd">        logger: With initial settings.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="n">logger</span><span class="o">.</span><span class="n">remove</span><span class="p">()</span>
-    <span class="n">logger</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="s2">&quot;logs/</span><span class="si">{time}</span><span class="s2">.log&quot;</span><span class="p">,</span> <span class="n">rotation</span><span class="o">=</span><span class="s2">&quot;24h&quot;</span><span class="p">)</span>
+    <span class="n">file_prefix</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">file_prefix</span><span class="si">}{</span><span class="s1">&#39;_&#39;</span> <span class="k">if</span> <span class="n">file_prefix</span> <span class="k">else</span> <span class="s1">&#39;&#39;</span><span class="si">}</span><span class="s2">&quot;</span>
+    <span class="n">file_postfix</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="s1">&#39;_&#39;</span> <span class="k">if</span> <span class="n">file_postfix</span> <span class="k">else</span> <span class="s1">&#39;&#39;</span><span class="si">}{</span><span class="n">file_postfix</span><span class="si">}</span><span class="s2">&quot;</span>
+    <span class="n">logger</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;logs/</span><span class="si">{</span><span class="n">file_prefix</span><span class="si">}</span><span class="se">{{</span><span class="s2">time:YYYYMMDD</span><span class="se">}}</span><span class="si">{</span><span class="n">file_postfix</span><span class="si">}</span><span class="s2">.log&quot;</span><span class="p">,</span> <span class="n">rotation</span><span class="o">=</span><span class="s2">&quot;24h&quot;</span><span class="p">)</span>
     <span class="n">logger</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="k">lambda</span> <span class="n">msg</span><span class="p">:</span> <span class="n">tqdm</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">msg</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">),</span> <span class="n">colorize</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
     <span class="k">return</span> <span class="n">logger</span>
 
@@ -124,19 +130,28 @@ logger    </h1>
 
         
             <span class="def">def</span>
-            <span class="name">get_logger</span><span class="signature">()</span>:
+            <span class="name">get_logger</span><span class="signature">(
+    file_prefix: str = &#39;&#39;,
+    file_postfix: str = &#39;&#39;
+) -&gt; &lt;loguru.logger handlers=[(id=1, level=10, sink=&#39;logs/{time:YYYYMMDD}.log&#39;), (id=2, level=10, sink=&lt;lambda&gt;)]&gt;</span>:
     </div>
 
                 <details>
             <summary>View Source</summary>
-            <div class="codehilite"><pre><span></span><span class="k">def</span> <span class="nf">get_logger</span><span class="p">():</span>
+            <div class="codehilite"><pre><span></span><span class="k">def</span> <span class="nf">get_logger</span><span class="p">(</span><span class="n">file_prefix</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="n">file_postfix</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">logger</span><span class="p">:</span>
     <span class="sd">&quot;&quot;&quot;Return a standardized loguru logger.</span>
 
+<span class="sd">    Args:</span>
+<span class="sd">        file_prefix (str, optional): File name prefix. Defaults to &quot;&quot;.</span>
+<span class="sd">        file_postfix (str, optional): File name postfix. Defaults to &quot;&quot;.</span>
+
 <span class="sd">    Returns:</span>
-<span class="sd">        loguru.logger.Logger: Initial settings have been applied.</span>
+<span class="sd">        logger: With initial settings.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="n">logger</span><span class="o">.</span><span class="n">remove</span><span class="p">()</span>
-    <span class="n">logger</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="s2">&quot;logs/</span><span class="si">{time}</span><span class="s2">.log&quot;</span><span class="p">,</span> <span class="n">rotation</span><span class="o">=</span><span class="s2">&quot;24h&quot;</span><span class="p">)</span>
+    <span class="n">file_prefix</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">file_prefix</span><span class="si">}{</span><span class="s1">&#39;_&#39;</span> <span class="k">if</span> <span class="n">file_prefix</span> <span class="k">else</span> <span class="s1">&#39;&#39;</span><span class="si">}</span><span class="s2">&quot;</span>
+    <span class="n">file_postfix</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="s1">&#39;_&#39;</span> <span class="k">if</span> <span class="n">file_postfix</span> <span class="k">else</span> <span class="s1">&#39;&#39;</span><span class="si">}{</span><span class="n">file_postfix</span><span class="si">}</span><span class="s2">&quot;</span>
+    <span class="n">logger</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;logs/</span><span class="si">{</span><span class="n">file_prefix</span><span class="si">}</span><span class="se">{{</span><span class="s2">time:YYYYMMDD</span><span class="se">}}</span><span class="si">{</span><span class="n">file_postfix</span><span class="si">}</span><span class="s2">.log&quot;</span><span class="p">,</span> <span class="n">rotation</span><span class="o">=</span><span class="s2">&quot;24h&quot;</span><span class="p">)</span>
     <span class="n">logger</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="k">lambda</span> <span class="n">msg</span><span class="p">:</span> <span class="n">tqdm</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">msg</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">),</span> <span class="n">colorize</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
     <span class="k">return</span> <span class="n">logger</span>
 </pre></div>
@@ -145,10 +160,17 @@ logger    </h1>
 
             <div class="docstring"><p>Return a standardized loguru logger.</p>
 
+<h6 id="args">Args</h6>
+
+<ul>
+<li><strong>file_prefix (str, optional):</strong>  File name prefix. Defaults to "".</li>
+<li><strong>file_postfix (str, optional):</strong>  File name postfix. Defaults to "".</li>
+</ul>
+
 <h6 id="returns">Returns</h6>
 
 <blockquote>
-  <p>loguru.logger.Logger: Initial settings have been applied.</p>
+  <p>logger: With initial settings.</p>
 </blockquote>
 </div>
 
