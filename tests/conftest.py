@@ -1,14 +1,13 @@
 import pytest
 from _pytest.logging import LogCaptureFixture
 
-from logger import get_logger
-
 
 @pytest.fixture
-def caplog(caplog: LogCaptureFixture):
+def caplog(logger, caplog: LogCaptureFixture):
     """Caplog fixture to be used with loguru.
 
     Args:
+        logger: Logger.
         caplog (LogCaptureFixture): Provides access and control of log capturing.
 
     Yields:
@@ -17,7 +16,6 @@ def caplog(caplog: LogCaptureFixture):
     Note:
         cf. https://bit.ly/3rwdyY2
     """
-    logger = get_logger()
     handler_id = logger.add(caplog.handler, format="{message}")
     yield caplog
     logger.remove(handler_id)

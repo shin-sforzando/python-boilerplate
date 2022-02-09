@@ -58,7 +58,7 @@ reveal: ## 暴露
 
 start: stop ## 開始
 	if [ $(OS_NAME) = "Darwin" ]; then say "Start the application." ; fi
-	$(CMD_DOCKER_COMPOSE) run --rm --no-deps --service-ports $(MAIN_CONTAINER_APP) python main.py
+	$(CMD_DOCKER_COMPOSE) run --rm --no-deps --service-ports $(MAIN_CONTAINER_APP) python src/main.py
 
 format: ## 整形
 	$(CMD_DOCKER_COMPOSE) run --rm --no-deps $(MAIN_CONTAINER_APP) black $(OPTS) .
@@ -71,7 +71,7 @@ test: build ## 試験
 	if [ $(OS_NAME) = "Darwin" ]; then say "The test process is complete." ; fi
 
 doc: format ## 文書
-	$(CMD_DOCKER_COMPOSE) run --rm --no-deps $(MAIN_CONTAINER_APP) pdoc -d google -o ./docs *.py
+	$(CMD_DOCKER_COMPOSE) run --rm --no-deps $(MAIN_CONTAINER_APP) pdoc -d google -o ./docs **/*.py
 	if [ $(OS_NAME) = "Darwin" ]; then say "The document generation is complete." ; fi
 	make open OPEN_TARGET="./docs/index.html"
 

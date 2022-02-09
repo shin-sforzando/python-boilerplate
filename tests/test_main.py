@@ -1,6 +1,6 @@
 import pytest
 
-import main
+from src import main
 
 
 def test_simple():
@@ -15,18 +15,18 @@ def test_zero_division():
 
 
 def test_main():
-    """Make sure that there is a main() in main.py."""
+    """Make sure that there is a main() in src/main.py."""
     assert hasattr(main, "main")
 
 
 def test_with_mock(mocker):
-    """[summary]
+    """Test with Mock.
 
     Args:
-        mocker (Mock): [description]
+        mocker (Mock): src/main.py main().
     """
 
     def always_return_true():
         return True
 
-    assert mocker.patch("main.main", side_effect=always_return_true)
+    assert mocker.patch("src.main.main", side_effect=always_return_true)

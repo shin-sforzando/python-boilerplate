@@ -6,6 +6,7 @@ loguru
 pdoc
 pytest
 pytest-cov
+pytest-datadir
 pytest-mock
 pytest-xdist[psutil]
 tqdm
