@@ -21,6 +21,9 @@
 - [How to](#how-to)
   - [Use this template](#use-this-template)
   - [Initialize](#initialize)
+    - [Reveal Secrets](#reveal-secrets)
+  - [Setup Git Hooks (Lefthook)](#setup-git-hooks-lefthook)
+    - [Others](#others)
   - [Develop](#develop)
     - [Start](#start)
     - [Format](#format)
@@ -37,7 +40,6 @@
 
 ## Prerequisites
 
-- [Lefthook](https://github.com/evilmartians/lefthook) as *Git Hooks Manager*
 - [Docker](https://www.docker.com) as *Environment Isolator*
   - [Python](https://www.python.org) (Version 3.10 or higher)
     - Production Dependencies
@@ -50,6 +52,8 @@
       - [pytest](https://pypi.org/project/pytest/) for *Application Test*
         - [pytest-xdist](https://pypi.org/project/pytest-xdist/) for *Parallel Testing*
   - [secretlint](https://github.com/secretlint/secretlint) as *Credential Linter*
+- [Lefthook](https://github.com/evilmartians/lefthook) as *Git Hooks Manager*
+- [git-secret](https://git-secret.io/) as *Secret File Manager*
 
 ## How to
 
@@ -94,6 +98,26 @@ help                 助言
 - [ ] **Delete this section!**
 
 ### Initialize
+
+#### Reveal Secrets
+
+Developers who share a GPG key with their team can decrypt confidential information.
+
+To reveal `*.secrets`,
+
+```shell
+make reveal
+```
+
+### Setup Git Hooks (Lefthook)
+
+```shell
+lefthook install
+```
+
+Thereafter, each commit will validate by `make format` and `make lint`, and each push will validate by [secretlint](https://github.com/secretlint/secretlint).
+
+#### Others
 
 ```shell
 make init

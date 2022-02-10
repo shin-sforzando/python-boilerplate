@@ -1,6 +1,6 @@
 pre-commit:
   commands:
-    format:
+    python-format:
       glob: "*.py"
       run: make format OPTS="--check"
     python-lint:

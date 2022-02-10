@@ -6,6 +6,7 @@ exclude =
     __pycache__,
     docs,
     logs
+ignore = W503
 max-complexity = 10
 max-line-length = 88
 show-source = True
