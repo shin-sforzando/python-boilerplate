@@ -1,7 +1,7 @@
+.coverage
 .git
 .github
 .gitsecret
-.coverage
-.pytest_cache
 .idea
+.pytest_cache
 .vscode
