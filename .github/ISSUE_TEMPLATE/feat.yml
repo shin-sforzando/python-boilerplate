@@ -23,7 +23,6 @@ body:
         ```python
         assert 1 + 1 == 2
         ```
-      render: markdown
     validations:
       required: false
   - type: textarea
@@ -36,7 +35,6 @@ body:
 
         - GitHub Actions
         - Circle CI
-
     validations:
       required: false
   - type: textarea

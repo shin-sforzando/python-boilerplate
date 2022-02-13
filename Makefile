@@ -87,6 +87,7 @@ down: ## 削除
 
 clean: down ## 掃除
 	rm -rfv logs/*
+	find . -type f -name "*.log" -delete
 	rm -rfv .mypy_cache
 	rm -rfv .pytest_cache
 	rm -rfv .coverage.*
