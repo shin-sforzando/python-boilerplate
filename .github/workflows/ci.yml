@@ -4,7 +4,7 @@ on:
   workflow_dispatch:
   push:
     paths-ignore:
-      - '**.md'
+      - "**.md"
 
 jobs:
   ci:
@@ -28,7 +28,7 @@ jobs:
       - name: Load .env file
         uses: xom9ikk/dotenv@v1.0.2
         with:
-          path: './'
+          path: "./"
       - name: Format
         id: format
         run: make format
@@ -39,6 +39,7 @@ jobs:
         id: test
         run: make test
       - name: Codecov
+        id: codecov
         uses: codecov/codecov-action@v2
         with:
           # token: ${{ secrets.CODECOV_TOKEN }}

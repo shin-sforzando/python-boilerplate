@@ -22,7 +22,7 @@
   - [Use this template](#use-this-template)
   - [Initialize](#initialize)
     - [Reveal Secrets](#reveal-secrets)
-  - [Setup Git Hooks (Lefthook)](#setup-git-hooks-lefthook)
+    - [Setup Git Hooks (Lefthook)](#setup-git-hooks-lefthook)
     - [Others](#others)
   - [Develop](#develop)
     - [Start](#start)
@@ -54,6 +54,7 @@
   - [secretlint](https://github.com/secretlint/secretlint) as *Credential Linter*
 - [Lefthook](https://github.com/evilmartians/lefthook) as *Git Hooks Manager*
 - [git-secret](https://git-secret.io/) as *Secret File Manager*
+- [direnv](https://direnv.net) as *`.env` Loader*
 
 ## How to
 
@@ -91,15 +92,18 @@ help                 助言
 - [ ] `lefthook install` to install git hooks
 - [ ] Check the [repository secrets](https://github.com/shin-sforzando/python-boilerplate/settings/secrets/actions)
   - [ ] `git secret remove dev@sforzando.co.jp.asc` to delete it
-  - [ ] Set `CODECOV_TOKEN` of this repository if it's private
+  - [ ] Set `CODECOV_TOKEN` of this repository if it's **private**
+  - [ ] Check `codecov` step in `.github/workflows/ci.yml` if it's **private**
 - [ ] Prepare [GitHub Pages](https://github.com/shin-sforzando/python-boilerplate/settings/pages)
-- [ ] Delete `.github/workflows/codeql-analysis.yml` if it's private
+- [ ] Delete `.github/workflows/codeql-analysis.yml` if it's **private**
 - [ ] Integrate with Slack: `/github subscribe shin-sforzando/python-boilerplate reviews comments branches commits:*`
 - [ ] **Delete this section!**
 
 ### Initialize
 
 #### Reveal Secrets
+
+(To install [git-secret](https://git-secret.io/) via [Homebrew](https://brew.sh), `brew install git-secret`.)
 
 Developers who share a GPG key with their team can decrypt confidential information.
 
@@ -109,7 +113,13 @@ To reveal `*.secrets`,
 make reveal
 ```
 
-### Setup Git Hooks (Lefthook)
+If `.env` -like files are included, [direnv](https://direnv.net) load it automatically.
+(To install [direnv](https://direnv.net) via [Homebrew](https://brew.sh), `brew install git-secret`.)
+`direnv allow` to approve its content.
+
+#### Setup Git Hooks (Lefthook)
+
+(To install [Lefthook](https://github.com/evilmartians/lefthook) via [Homebrew](https://brew.sh), `brew install lefthook`.)
 
 ```shell
 lefthook install
