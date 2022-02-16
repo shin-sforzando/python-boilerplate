@@ -1,12 +1,15 @@
-# prod dependencies
-# dev dependencies
+# for prod
+tqdm
+# for dev
 black
 flake8
 loguru
-pdoc
+# for test
 pytest
 pytest-cov
 pytest-datadir
 pytest-mock
 pytest-xdist[psutil]
-tqdm
+# for doc
+sphinx
+sphinx-rtd-theme

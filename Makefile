@@ -13,15 +13,11 @@ OPEN_TARGET := http://0.0.0.0:8000/
 
 OPTS :=
 .DEFAULT_GOAL := default
-.PHONY: default init ps build up renew shell logs follow open hide reveal start format lint test doc deploy stop down clean prune help
+.PHONY: default ps build up renew shell logs follow open hide reveal start format lint test doc sphinx deploy stop down clean prune help
 
 default: up ## 常用
 	make open
 	make follow
-
-init: reveal ## 初回
-	echo "TODO: Not Implemented Yet!"
-	if [ $(OS_NAME) = "Darwin" ]; then say "The initialize process is complete." ; fi
 
 ps: ## 状況
 	$(CMD_DOCKER_COMPOSE) ps --all
@@ -39,7 +35,7 @@ renew: down clean build ; ## 転生
 	if [ $(OS_NAME) = "Darwin" ]; then say "The container has been renewed." ; fi
 
 shell: ## 接続
-	$(CMD_DOCKER_COMPOSE) exec $(MAIN_CONTAINER_APP) $(MAIN_CONTAINER_SHELL)
+	$(CMD_DOCKER_COMPOSE) run --rm --no-deps $(MAIN_CONTAINER_APP) $(MAIN_CONTAINER_SHELL)
 
 logs: ## 記録
 	$(CMD_DOCKER_COMPOSE) logs --timestamps
@@ -70,10 +66,13 @@ test: build ## 試験
 	$(CMD_DOCKER_COMPOSE) run --rm --no-deps $(MAIN_CONTAINER_APP) pytest $(OPTS)
 	if [ $(OS_NAME) = "Darwin" ]; then say "The test process is complete." ; fi
 
-doc: format ## 文書
-	$(CMD_DOCKER_COMPOSE) run --rm --no-deps $(MAIN_CONTAINER_APP) pdoc -d google -o ./docs **/*.py
+doc: sphinx ## 文書
+
+sphinx: format ## 文書
+	$(CMD_DOCKER_COMPOSE) run --rm --no-deps $(MAIN_CONTAINER_APP) sphinx-apidoc --force --output-dir docs .
+	$(CMD_DOCKER_COMPOSE) run --rm --no-deps $(MAIN_CONTAINER_APP) sphinx-build -a -b html docs docs/_build/
 	if [ $(OS_NAME) = "Darwin" ]; then say "The document generation is complete." ; fi
-	make open OPEN_TARGET="./docs/index.html"
+	make open OPEN_TARGET="./docs/_build/index.html"
 
 deploy: ## 配備
 	echo "TODO: Not Implemented Yet!"
@@ -87,7 +86,7 @@ down: ## 削除
 
 clean: down ## 掃除
 	rm -rfv logs/*
-	find . -type f -name "*.log" -delete
+	find . -type f -name "*.log" -prune -exec rm -rf {} +
 	rm -rfv .mypy_cache
 	rm -rfv .pytest_cache
 	rm -rfv .coverage.*

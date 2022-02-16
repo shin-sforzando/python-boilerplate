@@ -72,4 +72,3 @@ def logger_timing(*, entering=True, leaving=True, timeit=True, level="DEBUG"):
 
 
 logger = get_logger()
-logger.debug("src/__init__.py")

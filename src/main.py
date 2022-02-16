@@ -14,7 +14,11 @@ Handler = http.server.SimpleHTTPRequestHandler
 
 @logger_timing()
 def main() -> None:
-    """The main function as an entry point."""
+    """The main function as an entry point.
+
+    Todo:
+        - Rewrite the actual logics.
+    """
     with http.server.HTTPServer((HOST, PORT), Handler) as httpd:
         logger.info(f"Listening on {HOST}:{PORT} ...")
         logger.info(httpd.serve_forever())
