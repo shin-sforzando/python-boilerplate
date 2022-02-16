@@ -9,9 +9,9 @@ pre-commit:
     test:
       glob: "*.py"
       run: make test
-    doc:
+    sphinx:
       glob: "*.py"
-      run: make doc
+      run: make sphinx
 
 pre-push:
   parallel: true

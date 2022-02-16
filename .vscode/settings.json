@@ -13,6 +13,7 @@
     "peaceiris",
     "Pipenv",
     "pytest",
+    "quickstart",
     "sforzando",
     "sfz",
     "toolsai",
@@ -25,5 +26,6 @@
   "editor.codeActionsOnSave": {
     "source.organizeImports": true
   },
-  "python.linting.enabled": true
+  "python.linting.enabled": true,
+  "restructuredtext.confPath": "${workspaceFolder}/docs"
 }
