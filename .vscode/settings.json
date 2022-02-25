@@ -12,6 +12,7 @@
     "pdoc",
     "peaceiris",
     "Pipenv",
+    "pysnooper",
     "pytest",
     "quickstart",
     "sforzando",

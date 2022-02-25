@@ -4,6 +4,7 @@ tqdm
 black
 flake8
 loguru
+pysnooper
 # for test
 pytest
 pytest-cov

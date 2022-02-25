@@ -2,6 +2,8 @@
 
 import http.server
 
+import pysnooper
+
 from src import logger, logger_timing
 
 HOST: str = "0.0.0.0"
@@ -12,6 +14,7 @@ PORT: int = 8000
 Handler = http.server.SimpleHTTPRequestHandler
 
 
+@pysnooper.snoop()
 @logger_timing()
 def main() -> None:
     """The main function as an entry point.
