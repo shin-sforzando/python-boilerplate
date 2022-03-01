@@ -13,11 +13,19 @@ OPEN_TARGET := http://0.0.0.0:8000/
 
 OPTS :=
 .DEFAULT_GOAL := default
-.PHONY: default ps build up renew shell logs follow open hide reveal start format lint test doc sphinx deploy stop down clean prune help
+.PHONY: default init ps build up renew shell logs follow open hide reveal start format lint test pytest doc sphinx deploy stop down clean prune help
 
 default: up ## 常用
 	make open
 	make follow
+
+init: ## 初期
+	brew install git-secret
+	brew install direnv
+	brew install lefthook
+	lefthook install
+	brew install git-cliff
+	if [ $(OS_NAME) = "Darwin" ]; then say "The initialization process is complete." ; fi
 
 ps: ## 状況
 	$(CMD_DOCKER_COMPOSE) ps --all
@@ -62,9 +70,11 @@ format: ## 整形
 lint: ## 検証
 	$(CMD_DOCKER_COMPOSE) run --rm --no-deps $(MAIN_CONTAINER_APP) flake8 $(OPTS)
 
-test: build ## 試験
-	$(CMD_DOCKER_COMPOSE) run --rm --no-deps $(MAIN_CONTAINER_APP) pytest $(OPTS)
+test: pytest ## 試験
 	if [ $(OS_NAME) = "Darwin" ]; then say "The test process is complete." ; fi
+
+pytest: build ## 試験
+	$(CMD_DOCKER_COMPOSE) run --rm --no-deps $(MAIN_CONTAINER_APP) pytest $(OPTS)
 
 doc: sphinx ## 文書
 

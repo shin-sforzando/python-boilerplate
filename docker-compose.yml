@@ -5,6 +5,8 @@ services:
     build: .
     environment:
       TZ: Asia/Tokyo
+    # env_file:
+    #   - .env
     volumes:
       - type: bind
         source: ./

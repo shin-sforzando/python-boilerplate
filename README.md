@@ -16,7 +16,7 @@
 <!-- Synopsis -->
 **python-boilerplate** is a template repository for using Docker & Python.
 
-### *Use this template*
+## *Use this template*
 
 - [ ] Replace the string `shin-sforzando` with the actual project owner
 - [ ] Replace the string `python-boilerplate` with the actual project name
@@ -32,9 +32,11 @@
 - [ ] **Delete this section!**
 
 <!-- TOC -->
+- [*Use this template*](#use-this-template)
 - [Prerequisites](#prerequisites)
 - [How to](#how-to)
-  - [First time preparetion](#first-time-preparetion)
+  - [First time preparation](#first-time-preparation)
+    - [Init](#init)
     - [Reveal Secrets](#reveal-secrets)
     - [Setup Git Hooks (Lefthook)](#setup-git-hooks-lefthook)
   - [Develop](#develop)
@@ -85,6 +87,7 @@ graph LR
 ```shell
 $ make help
 default              常用
+init                 初期
 ps                   状況
 build                構築
 up                   起動
@@ -99,7 +102,9 @@ start                開始
 format               整形
 lint                 検証
 test                 試験
+pytest               試験
 doc                  文書
+sphinx               文書
 deploy               配備
 stop                 停止
 down                 削除
@@ -108,12 +113,20 @@ prune                破滅
 help                 助言
 ```
 
-### First time preparetion
+### First time preparation
+
+#### Init
+
+To install some development commands, run below.
+
+```shell
+make init
+```
 
 #### Reveal Secrets
 
-To install [git-secret](https://git-secret.io/) via [Homebrew](https://brew.sh), `brew install git-secret`.
-To install [direnv](https://direnv.net) via [Homebrew](https://brew.sh), `brew install direnv`.
+To install [git-secret](https://git-secret.io/) via [Homebrew](https://brew.sh) manually, `brew install git-secret`.
+To install [direnv](https://direnv.net) via [Homebrew](https://brew.sh) manually, `brew install direnv`.
 
 Developers who share a GPG key with their team can decrypt confidential information.
 
@@ -160,6 +173,9 @@ DEBUG=True
 
 Usually, `.env` is prepared by [Reveal Secrets](#reveal-secrets) action.
 Don't forget that it needs to run `direnv allow` every time the `.env` is changed.
+
+`docker-compose` automatically loads `.env` at build.
+To apply even inside the Docker container, use `env_files` in `docker-compose.yml`.
 
 #### Start
 
@@ -223,7 +239,7 @@ make doc
 
 #### CHANGELOG
 
-To install [git-cliff](https://github.com/orhun/git-cliff) via [Homebrew](https://brew.sh), `brew install git-cliff`.
+To install [git-cliff](https://github.com/orhun/git-cliff) via [Homebrew](https://brew.sh) manually, `brew install git-cliff`.
 
 To update `CHANGELOG.md` manually, run [git-cliff](https://github.com/orhun/git-cliff) like below.
 

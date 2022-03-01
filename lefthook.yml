@@ -6,7 +6,7 @@ pre-commit:
     python-lint:
       glob: "*.py"
       run: make lint
-    test:
+    pytest:
       glob: "*.py"
       run: make test
     sphinx:
