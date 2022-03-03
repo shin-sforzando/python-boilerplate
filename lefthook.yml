@@ -1,17 +1,18 @@
 pre-commit:
   commands:
+    hide-secrets:
+      run: make hide
     python-format:
       glob: "*.py"
-      run: make format OPTS="--check"
+      run: make format && git add {staged_files}
     python-lint:
       glob: "*.py"
-      run: make lint
-    pytest:
+      run: make lint && git add {staged_files}
+    test:
       glob: "*.py"
-      run: make test
-    sphinx:
-      glob: "*.py"
-      run: make sphinx
+      run: make test {all_files} && git add tests
+    document:
+      run: make doc && git add docs
 
 pre-push:
   parallel: true

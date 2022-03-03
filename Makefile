@@ -55,7 +55,7 @@ open: ## 閲覧
 	if [ $(OS_NAME) = "Darwin" ]; then open ${OPEN_TARGET} ; fi
 
 hide: ## 秘匿
-	git secret hide -v
+	git secret hide -vm
 
 reveal: ## 暴露
 	git secret reveal -vf

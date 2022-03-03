@@ -9,15 +9,15 @@ from tqdm import tqdm
 def get_logger(
     file_prefix: str = "", file_postfix: str = "", level: Union[str, int] = "DEBUG"
 ) -> logger:
-    """[summary]
+    """Create a logger with default configurations.
 
     Args:
-        file_prefix (str, optional): Prefix of log file. Defaults to "".
-        file_postfix (str, optional): Postfix of log file. Defaults to "".
-        level (Union, optional): Level threshold. Defaults to "DEBUG".
+        file_prefix (str, optional): Default is "".
+        file_postfix (str, optional): Default is "".
+        level (Union[str, int], optional): Default is "DEBUG".
 
     Returns:
-        logger: With configuration.
+        logger: With configurations.
     """
     logger.remove()
     file_prefix = f"{file_prefix}{'_' if file_prefix else ''}"
