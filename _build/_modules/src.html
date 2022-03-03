@@ -75,15 +75,15 @@
 <div class="viewcode-block" id="get_logger"><a class="viewcode-back" href="../src.html#src.get_logger">[docs]</a><span class="k">def</span> <span class="nf">get_logger</span><span class="p">(</span>
     <span class="n">file_prefix</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="n">file_postfix</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="n">level</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;DEBUG&quot;</span>
 <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">logger</span><span class="p">:</span>
-    <span class="sd">&quot;&quot;&quot;[summary]</span>
+    <span class="sd">&quot;&quot;&quot;Create a logger with default configurations.</span>
 
 <span class="sd">    Args:</span>
-<span class="sd">        file_prefix (str, optional): Prefix of log file. Defaults to &quot;&quot;.</span>
-<span class="sd">        file_postfix (str, optional): Postfix of log file. Defaults to &quot;&quot;.</span>
-<span class="sd">        level (Union, optional): Level threshold. Defaults to &quot;DEBUG&quot;.</span>
+<span class="sd">        file_prefix (str, optional): Default is &quot;&quot;.</span>
+<span class="sd">        file_postfix (str, optional): Default is &quot;&quot;.</span>
+<span class="sd">        level (Union[str, int], optional): Default is &quot;DEBUG&quot;.</span>
 
 <span class="sd">    Returns:</span>
-<span class="sd">        logger: With configuration.</span>
+<span class="sd">        logger: With configurations.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="n">logger</span><span class="o">.</span><span class="n">remove</span><span class="p">()</span>
     <span class="n">file_prefix</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">file_prefix</span><span class="si">}{</span><span class="s1">&#39;_&#39;</span> <span class="k">if</span> <span class="n">file_prefix</span> <span class="k">else</span> <span class="s1">&#39;&#39;</span><span class="si">}</span><span class="s2">&quot;</span>
