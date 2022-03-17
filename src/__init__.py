@@ -1,9 +1,28 @@
 import functools
+import os
 import time
 from typing import Union
 
+from dotenv import load_dotenv
 from loguru import logger
 from tqdm import tqdm
+
+load_dotenv(verbose=True)
+
+
+def print_env_vars() -> None:
+    """Print all environment variables to stdout."""
+    for k, v in os.environ.items():
+        get_logger().debug(f"{k}: {v}")
+
+
+def is_prod() -> bool:
+    """Determine whether or not the app is running in development or production.
+
+    Returns:
+        bool: True if the environment is production and false otherwise.
+    """
+    return True
 
 
 def get_logger(

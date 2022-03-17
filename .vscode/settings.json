@@ -6,6 +6,7 @@
     "CODECOV",
     "codeql",
     "commitizen",
+    "dotenv",
     "lefthook",
     "loguru",
     "markdownlint",

@@ -1,4 +1,5 @@
 # for prod
+python-dotenv
 tqdm
 # for dev
 black
