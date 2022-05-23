@@ -7,6 +7,7 @@
 [![GitHub Pages](https://github.com/shin-sforzando/python-boilerplate/actions/workflows/pages.yml/badge.svg)](https://shin-sforzando.github.io/python-boilerplate/)
 [![Commitizen friendly](https://img.shields.io/badge/commitizen-friendly-brightgreen.svg)](http://commitizen.github.io/cz-cli/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)
+[![CII Best Practices](https://bestpractices.coreinfrastructure.org/projects/6067/badge)](https://bestpractices.coreinfrastructure.org/projects/6067)
 
 <!-- Screenshots -->
 | ![Screenshot 1](https://placehold.jp/32/3d4070/ffffff/720x480.png?text=Screenshot%201) | ![Screenshot 2](https://placehold.jp/32/703d40/ffffff/720x480.png?text=Screenshot%202) |
@@ -24,10 +25,13 @@
 - [ ] `lefthook install` to install git hooks
 - [ ] Check the [repository secrets](https://github.com/shin-sforzando/python-boilerplate/settings/secrets/actions)
   - [ ] `git secret remove dev@sforzando.co.jp.asc` to delete it
+  - [ ] Set `SCORECARD_READ_TOKEN` for OpenSSF
   - [ ] Set `CODECOV_TOKEN` of this repository if it's **private**
   - [ ] Check `codecov` step in `.github/workflows/ci.yml` if it's **private**
 - [ ] Prepare [GitHub Pages](https://github.com/shin-sforzando/python-boilerplate/settings/pages)
+- [ ] Arrange `sider.yml` to match the project
 - [ ] Delete `.github/workflows/codeql-analysis.yml` if it's **private**
+- [ ] Submit [OpenSSF Best Practices Badge Program](https://bestpractices.coreinfrastructure.org/en)
 - [ ] Integrate with Slack: `/github subscribe shin-sforzando/python-boilerplate reviews comments branches commits:*`
 - [ ] **Delete this section!**
 
