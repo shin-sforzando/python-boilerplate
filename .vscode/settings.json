@@ -30,5 +30,6 @@
     "source.organizeImports": true
   },
   "python.linting.enabled": true,
-  "restructuredtext.confPath": "${workspaceFolder}/docs"
+  "restructuredtext.confPath": "${workspaceFolder}/docs",
+  "esbonio.sphinx.confDir": "${workspaceFolder}/docs"
 }
