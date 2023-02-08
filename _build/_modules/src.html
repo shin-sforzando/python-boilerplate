@@ -10,10 +10,8 @@
     <script src="../_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
         <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
-        <script src="../_static/jquery.js"></script>
-        <script src="../_static/underscore.js"></script>
-        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
         <script src="../_static/doctools.js"></script>
         <script src="../_static/sphinx_highlight.js"></script>
     <script src="../_static/js/theme.js"></script>
@@ -26,11 +24,15 @@
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
-            <a href="../index.html" class="icon icon-home"> python-boilerplate
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            python-boilerplate
           </a>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" />
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
   </form>
@@ -54,9 +56,9 @@
         <div class="rst-content">
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
-          <li><a href="index.html">Module code</a> &raquo;</li>
-      <li>src</li>
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="index.html">Module code</a></li>
+      <li class="breadcrumb-item active">src</li>
       <li class="wy-breadcrumbs-aside">
       </li>
   </ul>
@@ -79,13 +81,13 @@
 
 
 <div class="viewcode-block" id="print_env_vars"><a class="viewcode-back" href="../src.html#src.print_env_vars">[docs]</a><span class="k">def</span> <span class="nf">print_env_vars</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
-    <span class="sd">&quot;&quot;&quot;Print all environment variables to stdout.&quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Print all environment variables to stdout.&quot;&quot;&quot;</span>
     <span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
         <span class="n">get_logger</span><span class="p">()</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">k</span><span class="si">}</span><span class="s2">: </span><span class="si">{</span><span class="n">v</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span></div>
 
 
 <div class="viewcode-block" id="is_prod"><a class="viewcode-back" href="../src.html#src.is_prod">[docs]</a><span class="k">def</span> <span class="nf">is_prod</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
-    <span class="sd">&quot;&quot;&quot;Determine whether or not the app is running in development or production.</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Determine whether or not the app is running in development or production.</span>
 
 <span class="sd">    Returns:</span>
 <span class="sd">        bool: True if the environment is production and false otherwise.</span>
@@ -96,7 +98,7 @@
 <div class="viewcode-block" id="get_logger"><a class="viewcode-back" href="../src.html#src.get_logger">[docs]</a><span class="k">def</span> <span class="nf">get_logger</span><span class="p">(</span>
     <span class="n">file_prefix</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="n">file_postfix</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="n">level</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;DEBUG&quot;</span>
 <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">logger</span><span class="p">:</span>
-    <span class="sd">&quot;&quot;&quot;Create a logger with default configurations.</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Create a logger with default configurations.</span>
 
 <span class="sd">    Args:</span>
 <span class="sd">        file_prefix (str, optional): Default is &quot;&quot;.</span>
@@ -107,8 +109,8 @@
 <span class="sd">        logger: With configurations.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="n">logger</span><span class="o">.</span><span class="n">remove</span><span class="p">()</span>
-    <span class="n">file_prefix</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">file_prefix</span><span class="si">}{</span><span class="s1">&#39;_&#39;</span> <span class="k">if</span> <span class="n">file_prefix</span> <span class="k">else</span> <span class="s1">&#39;&#39;</span><span class="si">}</span><span class="s2">&quot;</span>
-    <span class="n">file_postfix</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="s1">&#39;_&#39;</span> <span class="k">if</span> <span class="n">file_postfix</span> <span class="k">else</span> <span class="s1">&#39;&#39;</span><span class="si">}{</span><span class="n">file_postfix</span><span class="si">}</span><span class="s2">&quot;</span>
+    <span class="n">file_prefix</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">file_prefix</span><span class="si">}{</span><span class="s1">&#39;_&#39;</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="n">file_prefix</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="s1">&#39;&#39;</span><span class="si">}</span><span class="s2">&quot;</span>
+    <span class="n">file_postfix</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="s1">&#39;_&#39;</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="n">file_postfix</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="s1">&#39;&#39;</span><span class="si">}{</span><span class="n">file_postfix</span><span class="si">}</span><span class="s2">&quot;</span>
     <span class="n">logger</span><span class="o">.</span><span class="n">add</span><span class="p">(</span>
         <span class="sa">f</span><span class="s2">&quot;logs/</span><span class="si">{</span><span class="n">file_prefix</span><span class="si">}</span><span class="se">{{</span><span class="s2">time:YYYYMMDD</span><span class="se">}}</span><span class="si">{</span><span class="n">file_postfix</span><span class="si">}</span><span class="s2">.log&quot;</span><span class="p">,</span>
         <span class="n">rotation</span><span class="o">=</span><span class="s2">&quot;24h&quot;</span><span class="p">,</span>
@@ -119,7 +121,7 @@
 
 
 <div class="viewcode-block" id="logger_timing"><a class="viewcode-back" href="../src.html#src.logger_timing">[docs]</a><span class="k">def</span> <span class="nf">logger_timing</span><span class="p">(</span><span class="o">*</span><span class="p">,</span> <span class="n">entering</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">leaving</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">timeit</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">level</span><span class="o">=</span><span class="s2">&quot;DEBUG&quot;</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;Wrapper for additional output about timing.</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Wrapper for additional output about timing.</span>
 
 <span class="sd">    Args:</span>
 <span class="sd">        entering (bool): Whether or not to output the entry time.</span>
