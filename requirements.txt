@@ -15,3 +15,4 @@ pytest-xdist[psutil]
 # for doc
 sphinx
 sphinx-rtd-theme
+setuptools>=65.5.1 # not directly required, pinned by Snyk to avoid a vulnerability
